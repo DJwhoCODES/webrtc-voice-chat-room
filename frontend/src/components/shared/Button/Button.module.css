@@ -1,24 +1,33 @@
 .button {
-  background-color: #0077ff;
-  padding: 5px 20px;
+  background-color: #a46018;
+  padding: 10px 20px;
   border: none;
   outline: none;
   display: flex;
   align-items: center;
   margin: 0 auto;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 .button:hover {
-  background-color: #014a9c;
+  background-color: #5e3909;
   cursor: pointer;
 }
 
 .arrow {
-  width: 40px;
+  width: 20px;
   height: auto;
   font-weight: bold;
+  margin-left: 10px;
+}
+
+.left_arrow {
+  width: 20px;
+  height: auto;
+  font-weight: bold;
+  margin-right: 10px;
 }

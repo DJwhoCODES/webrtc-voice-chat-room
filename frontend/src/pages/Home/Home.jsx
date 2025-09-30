@@ -14,25 +14,25 @@ const Home = () => {
 
   const navigate = useNavigate();
   function redirectToRegister() {
-    navigate("/register");
+    navigate("/authenticate");
   }
 
   return (
     <div className={styles.cardWrapper}>
-      <Card title="Welcome To Voice Chat Room Via WebRTC" icon="phone">
+      <Card title="Welcome To Voice Chat Room Via WebRTC" icon="logo">
         <p className={styles.text}>
           We're working hard to get DJwhoCodes ready for everyone! While we wrap
           up the finishing youches, we're adding people gradually to make sure
           nothing breaks
         </p>
         <div>
-          <Button onClick={redirectToRegister} btnText="Get your username" />
+          <Button onClick={redirectToRegister} btnText="Let's Go" />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
-          <Link to="/login" style={signInLinkStyle}>
+          {/* <Link to="/login" style={signInLinkStyle}>
             Sign In
-          </Link>
+          </Link> */}
         </div>
       </Card>
     </div>
