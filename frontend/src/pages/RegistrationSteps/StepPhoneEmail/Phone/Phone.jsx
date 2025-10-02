@@ -14,6 +14,7 @@ const Phone = ({ onNext, onPrev }) => {
 
   async function submit() {
     try {
+      if (!phoneNumber) return;
       const res = await sendOtp({ phone: phoneNumber });
       console.log({ otp: res.data.otp });
       dispatch(setOtp(res.data));

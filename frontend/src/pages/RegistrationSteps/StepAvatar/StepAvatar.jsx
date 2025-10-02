@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setAvatar } from "../../../store/activationSlice";
 import { activate } from "../../../http";
 import { setAuth } from "../../../store/authSlice";
+import Loader from "../../../components/shared/Loader/Loader";
 // import Loader from "../../../components/shared/Loader/Loader";
 
 const StepAvatar = ({ onNext }) => {
@@ -47,7 +48,7 @@ const StepAvatar = ({ onNext }) => {
     };
   }, []);
 
-  // if (loading) return <Loader message="Activation in progress..." />;
+  if (loading) return <Loader message="Activation in progress..." />;
   return (
     <>
       <Card title={`Okay, ${name}`} icon="logo">

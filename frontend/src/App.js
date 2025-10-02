@@ -6,48 +6,53 @@ import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 import { useSelector } from 'react-redux';
+import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
+import Loader from './components/shared/Loader/Loader';
 
 function App() {
+  let { loading } = useLoadingWithRefresh();
   return (
-    <BrowserRouter>
-      <Navigation />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <GuestRoute>
-              <Home />
-            </GuestRoute>
-          }
-        />
-        <Route
-          path="/authenticate"
-          element={
-            <GuestRoute>
-              <Authenticate />
-            </GuestRoute>
-          }
-        />
+    loading ? <Loader message="Loading, please wait..." /> : (
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <GuestRoute>
+                <Home />
+              </GuestRoute>
+            }
+          />
+          <Route
+            path="/authenticate"
+            element={
+              <GuestRoute>
+                <Authenticate />
+              </GuestRoute>
+            }
+          />
 
-        <Route
-          path="/activate"
-          element={
-            <SemiProtectedRoute>
-              <Activate />
-            </SemiProtectedRoute>
-          }
-        />
+          <Route
+            path="/activate"
+            element={
+              <SemiProtectedRoute>
+                <Activate />
+              </SemiProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/rooms"
-          element={
-            <ProtectedRoute>
-              <Rooms />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path="/rooms"
+            element={
+              <ProtectedRoute>
+                <Rooms />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    )
   );
 }
 
